@@ -1,13 +1,19 @@
 #include <iostream>
-#include "student.cpp"
+#include "student.hpp"
+#include "dataBase.hpp"
 
-int main{
+int main(){
 
-Student student1("Pawel", "Lubanski", "Tasmowa", 0, 91070207174, "m") 
+DataBase data_base;
 
-std::cout << student1.getName();
-std::cout << student1.getFamily_name();
+data_base.addNewStudent("Pawel", "Lubanski", "Tasmowa", 0, 91070207174, "m");
+data_base.shawAllBase();
 
+/*Student student1("Pawel", "Lubanski", "Tasmowa", 0, 91070207174, "m");
 
-return 0
+std::cout << student1.getName() << '\n';
+std::cout << student1.getFamily_name() << '\n';
+*/
+
+return 0;
 }
