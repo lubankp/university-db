@@ -4,10 +4,12 @@
 
 int main(){
 
-DataBase data_base;
+Student student1("Pawel", "Lubanski", "Tasmowa", 0, 91070207174, "m");
+
+DataBase data_base(student1);
 
 data_base.addNewStudent("Pawel", "Lubanski", "Tasmowa", 0, 91070207174, "m");
-data_base.shawAllBase();
+//data_base.shawAllBase();
 
 /*Student student1("Pawel", "Lubanski", "Tasmowa", 0, 91070207174, "m");
 

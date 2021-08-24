@@ -16,7 +16,7 @@ void DataBase::shawAllBase(){
 
     for( auto element : dataBase){
 
-        std::cout << element.getName << ", " << element.getFamily_name << ", " << element.getId 
-        << ", " << element.getAdress << ", " << element.getPessel << element.getSex << '\n';
+        std::cout << element.getName() << ", " << element.getFamily_name() << ", " << element.getId() 
+        << ", " << element.getAdress() << ", " << element.getPessel() << element.getSex() << '\n';
     }
 }
