@@ -1,9 +1,11 @@
+# include <algorithm>
 # include "student.hpp"
 # include "dataBase.hpp"
 
 
 DataBase::DataBase(){
-        dataBase.reserve(10);
+       //rezerwacja dla pierwszych 10 studentow
+       dataBase.reserve(10);  
 }
 
 
@@ -20,6 +22,42 @@ void DataBase::shawAllBase(){
     for( auto element : dataBase){
 
         std::cout << element.getName() << ", " << element.getFamily_name() << ", " << element.getId() 
-        << ", " << element.getAdress() << ", " << element.getPessel() << element.getSex() << '\n';
+        << ", " << element.getAdress() << ", " << element.getPessel() << ", "<< element.getSex() << '\n';
     }
+}
+
+void DataBase::findViaSurname(std::string surname){
+
+    for ( auto i = dataBase.begin(); i < dataBase.end(); i++ ){
+        auto element = *i;
+        if(element.getFamily_name() == surname){
+            std::cout << element.getName() << ", " << element.getFamily_name() << ", " << element.getId() 
+             << ", " << element.getAdress() << ", " << element.getPessel() << ", "<< element.getSex() << '\n';
+            break;
+        }else if(i == dataBase.end()-1){
+            std::cout << "Brak w bazie danych nazwiska" << '\n';
+        }
+
+    }
+}
+
+void DataBase::findViaPessel(int pessel){
+
+    for ( auto i = dataBase.begin(); i < dataBase.end(); i++ ){
+        auto element = *i;
+        if(element.getPessel() == pessel){
+            std::cout << element.getName() << ", " << element.getFamily_name() << ", " << element.getId() 
+             << ", " << element.getAdress() << ", " << element.getPessel() << ", "<< element.getSex() << '\n';
+            break;
+        }else if(i == dataBase.end()-1){
+            std::cout << "Brak w bazie danych pesselu" << '\n';
+        }
+
+    }
+}
+
+void DataBase::sortPessel(){
+
+    
+
 }

@@ -13,8 +13,8 @@ public:
     DataBase();
     void addNewStudent(std::string, std::string, std::string, size_t, long int, std::string);
     void shawAllBase();
-   // void findViaSurname();
-    //void findViaPessel();
+    void findViaSurname(std::string);
+    void findViaPessel(int);
    // void sortPessel();
     //void sortSurname();
    // void delateViaId();
