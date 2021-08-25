@@ -8,7 +8,6 @@ DataBase::DataBase(){
        dataBase.reserve(10);  
 }
 
-
 void DataBase::addNewStudent(std::string name, std::string family_name, std::string address, size_t id, long int pessel, std::string sex){
 
     Student student(name, family_name, address, id, pessel, sex); 
@@ -58,6 +57,26 @@ void DataBase::findViaPessel(int pessel){
 
 void DataBase::sortPessel(){
 
-    
+    std::sort(dataBase.begin(), dataBase.end(), [](Student st1, Student st2 ){ 
+       return (st1.getPessel() < st2.getPessel());
+    });
 
+}
+
+void DataBase::sortSurname(){
+
+    std::sort(dataBase.begin(), dataBase.end(), [](Student st1, Student st2 ){ 
+       return (st1.getFamily_name() < st2.getFamily_name());
+    });
+
+}
+
+void DataBase::delateById(size_t id){
+
+   for ( auto i = dataBase.begin(); i < dataBase.end(); i++ ){
+       auto element = *i;
+       if(element.getId() == id){
+           dataBase.erase(i);
+       }
+   }
 }

@@ -15,8 +15,8 @@ public:
     void shawAllBase();
     void findViaSurname(std::string);
     void findViaPessel(int);
-   // void sortPessel();
-    //void sortSurname();
-   // void delateViaId();
+    void sortPessel();
+    void sortSurname();
+    void delateById(size_t);
 
 };
