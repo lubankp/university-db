@@ -1,4 +1,5 @@
 # include <algorithm>
+# include <fstream>
 # include "student.hpp"
 # include "dataBase.hpp"
 
@@ -103,4 +104,17 @@ bool DataBase::validatePessel(std::string pessel){
         checkSum = 10 - checkSum;
     }
     return pessel.back() - '0' == checkSum; 
+}
+
+void DataBase::exportDataBase(std::string fileName){
+
+    std::fstream peopleBase(fileName, peopleBase.out | peopleBase.app);
+  
+    if(peopleBase.is_open()){
+        for( auto element : dataBase){
+
+            peopleBase << element.getName() << ", " << element.getFamily_name() << ", " << element.getId() 
+            << ", " << element.getAdress() << ", " << element.getPessel() << ", "<< element.getSex() << '\n';
+        }
+    }
 }

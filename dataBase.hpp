@@ -24,5 +24,7 @@ public:
     void sortSurname();
     void delateById(size_t);
     bool validatePessel(std::string);
+    void exportDataBase(std::string);
+    void importDataBase(std::string);
 
 };

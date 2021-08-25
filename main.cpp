@@ -41,6 +41,8 @@ std::cout << '\n';
 //walidacja pesselu
 std::cout << data_base.validatePessel(data_base.getDataBase()[0].getPessel());
 std::cout << '\n';
+//wypisz baze do pliku
+data_base.exportDataBase("plik.csv");
 
 return 0;
 }
