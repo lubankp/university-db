@@ -29,7 +29,7 @@ void DataBase::shawAllBase(){
 void DataBase::findViaSurname(std::string surname){
 
     for ( auto i = dataBase.begin(); i < dataBase.end(); i++ ){
-        auto element = *i;
+        auto &element = *i;
         if(element.getFamily_name() == surname){
             std::cout << element.getName() << ", " << element.getFamily_name() << ", " << element.getId() 
              << ", " << element.getAdress() << ", " << element.getPessel() << ", "<< element.getSex() << '\n';
@@ -44,7 +44,7 @@ void DataBase::findViaSurname(std::string surname){
 void DataBase::findViaPessel(std::string pessel){
 
     for ( auto i = dataBase.begin(); i < dataBase.end(); i++ ){
-        auto element = *i;
+        auto &element = *i;
         if(element.getPessel() == pessel){
             std::cout << element.getName() << ", " << element.getFamily_name() << ", " << element.getId() 
              << ", " << element.getAdress() << ", " << element.getPessel() << ", "<< element.getSex() << '\n';
@@ -108,13 +108,25 @@ bool DataBase::validatePessel(std::string pessel){
 
 void DataBase::exportDataBase(std::string fileName){
 
-    std::fstream peopleBase(fileName, peopleBase.out | peopleBase.app);
+    std::fstream peopleBase(fileName, peopleBase.out);
   
     if(peopleBase.is_open()){
         for( auto element : dataBase){
 
             peopleBase << element.getName() << ", " << element.getFamily_name() << ", " << element.getId() 
             << ", " << element.getAdress() << ", " << element.getPessel() << ", "<< element.getSex() << '\n';
+        }
+    }
+}
+
+void DataBase::importDataBase(std::string fileName){
+
+    std::fstream peopleBase(fileName, peopleBase.in);
+  
+    if(peopleBase.is_open()){
+        std::string stream;
+        while(!getline(peopleBase, stream, '\n').eof()){
+            std::cout << stream << '\n';
         }
     }
 }
