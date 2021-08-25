@@ -1,4 +1,5 @@
 #pragma once
+# include <string>
 # include <vector>
 # include <memory>
 # include "student.hpp"
@@ -9,7 +10,7 @@ class DataBase{
 
 public:
 
-    DataBase(Student);
+    DataBase();
     void addNewStudent(std::string, std::string, std::string, size_t, long int, std::string);
     void shawAllBase();
    // void findViaSurname();

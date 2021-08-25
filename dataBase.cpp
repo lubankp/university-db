@@ -1,7 +1,10 @@
-# include <vector>
-# include <memory>
 # include "student.hpp"
 # include "dataBase.hpp"
+
+
+DataBase::DataBase(){
+        dataBase.reserve(10);
+}
 
 
 void DataBase::addNewStudent(std::string name, std::string family_name, std::string address, size_t id, long int pessel, std::string sex){
