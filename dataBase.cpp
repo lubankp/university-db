@@ -8,7 +8,7 @@ DataBase::DataBase(){
        dataBase.reserve(10);  
 }
 
-void DataBase::addNewStudent(std::string name, std::string family_name, std::string address, size_t id, long int pessel, std::string sex){
+void DataBase::addNewStudent(std::string name, std::string family_name, std::string address, size_t id, std::string pessel, std::string sex){
 
     Student student(name, family_name, address, id, pessel, sex); 
 
@@ -40,7 +40,7 @@ void DataBase::findViaSurname(std::string surname){
     }
 }
 
-void DataBase::findViaPessel(int pessel){
+void DataBase::findViaPessel(std::string pessel){
 
     for ( auto i = dataBase.begin(); i < dataBase.end(); i++ ){
         auto element = *i;
@@ -79,4 +79,28 @@ void DataBase::delateById(size_t id){
            dataBase.erase(i);
        }
    }
+}
+
+bool DataBase::validatePessel(std::string pessel){
+
+    if (pessel.size() != pesselSize){
+        return false;
+    }
+    
+    const std::array<int, 10> weights = {1, 3, 7, 9, 1, 3, 7, 9, 1, 3 };
+    int checkSum = 0;
+
+    
+    for(auto i = 0; i < weights.size(); i++){
+        
+        auto number = (pessel[i]-'0') * weights[i];
+        checkSum += number;
+        
+    }
+    checkSum = checkSum % 10;
+    
+    if (checkSum != 0){
+        checkSum = 10 - checkSum;
+    }
+    return pessel.back() - '0' == checkSum; 
 }
