@@ -40,7 +40,7 @@ data_base.shawAllBase();
 std::cout << '\n';
 //walidacja pesselu
 std::cout << data_base.validatePessel(data_base.getDataBase()[0].getPessel());
-//std::cout << data_base.getDataBase()[0].getPessel() <<'\n';
+std::cout << '\n';
 
 return 0;
 }
