@@ -1,2 +1,2 @@
 # university-db
-OOP projekt, database management
+OOP projekt, database management, date of students
