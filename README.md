@@ -1,2 +1,2 @@
 # university-db
-Podstawy OOP miniprojekt
+OOP projekt, database management
